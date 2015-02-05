@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Dish_DishType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DishId" Type="int" Nullable="false" />
+    <Property Name="DishTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dish_TimeOfDay">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DishId" Type="int" Nullable="false" />
+    <Property Name="TimeOfDayId" Type="int" Nullable="false" />
+    <Property Name="EnableMultiple" Type="bit" />
+  </EntityType>
+  <EntityType Name="Dishes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DishTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TimeOfDay">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DishId_ToDish">
+    <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+    <End Role="Dish_DishType" Type="Self.Dish_DishType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dishes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dish_DishType">
+        <PropertyRef Name="DishId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DishId_ToDishes">
+    <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+    <End Role="Dish_TimeOfDay" Type="Self.Dish_TimeOfDay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dishes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dish_TimeOfDay">
+        <PropertyRef Name="DishId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DishTypeId_ToDishType">
+    <End Role="DishTypes" Type="Self.DishTypes" Multiplicity="1" />
+    <End Role="Dish_DishType" Type="Self.Dish_DishType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DishTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dish_DishType">
+        <PropertyRef Name="DishTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TimeOfDayId_ToTimeOfDay">
+    <End Role="TimeOfDay" Type="Self.TimeOfDay" Multiplicity="1" />
+    <End Role="Dish_TimeOfDay" Type="Self.Dish_TimeOfDay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TimeOfDay">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dish_TimeOfDay">
+        <PropertyRef Name="TimeOfDayId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Dish_DishType" EntityType="Self.Dish_DishType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dish_TimeOfDay" EntityType="Self.Dish_TimeOfDay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dishes" EntityType="Self.Dishes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DishTypes" EntityType="Self.DishTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TimeOfDay" EntityType="Self.TimeOfDay" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DishId_ToDish" Association="Self.FK_DishId_ToDish">
+      <End Role="Dishes" EntitySet="Dishes" />
+      <End Role="Dish_DishType" EntitySet="Dish_DishType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DishId_ToDishes" Association="Self.FK_DishId_ToDishes">
+      <End Role="Dishes" EntitySet="Dishes" />
+      <End Role="Dish_TimeOfDay" EntitySet="Dish_TimeOfDay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DishTypeId_ToDishType" Association="Self.FK_DishTypeId_ToDishType">
+      <End Role="DishTypes" EntitySet="DishTypes" />
+      <End Role="Dish_DishType" EntitySet="Dish_DishType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TimeOfDayId_ToTimeOfDay" Association="Self.FK_TimeOfDayId_ToTimeOfDay">
+      <End Role="TimeOfDay" EntitySet="TimeOfDay" />
+      <End Role="Dish_TimeOfDay" EntitySet="Dish_TimeOfDay" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,16 @@
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\bin\Debug\App_Data\DishesDatabase.mdf
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\bin\Debug\App_Data\DishesDatabase_log.ldf
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\bin\Debug\DishOrderSystemBLL.dll.config
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\bin\Debug\DishOrderSystemBLL.dll
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\bin\Debug\DishOrderSystemBLL.pdb
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\bin\Debug\DishOrderSystemDAL.dll
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\bin\Debug\DishOrderUtilities.dll
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\bin\Debug\EntityFramework.dll
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\bin\Debug\DishOrderSystemDAL.pdb
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\bin\Debug\DishOrderUtilities.pdb
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\bin\Debug\EntityFramework.xml
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\obj\Debug\DishOrderSystemBLL.csprojResolveAssemblyReference.cache
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\obj\Debug\DishOrderSystemBLL.dll
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\DishOrderSystemBLL\obj\Debug\DishOrderSystemBLL.pdb

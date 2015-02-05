@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dish_DishType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DishId" Type="int" Nullable="false" />
+          <Property Name="DishTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dish_TimeOfDay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DishId" Type="int" Nullable="false" />
+          <Property Name="TimeOfDayId" Type="int" Nullable="false" />
+          <Property Name="EnableMultiple" Type="bit" />
+        </EntityType>
+        <EntityType Name="Dishes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DishTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimeOfDay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DishId_ToDish">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="Dish_DishType" Type="Self.Dish_DishType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dish_DishType">
+              <PropertyRef Name="DishId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DishId_ToDishes">
+          <End Role="Dishes" Type="Self.Dishes" Multiplicity="1" />
+          <End Role="Dish_TimeOfDay" Type="Self.Dish_TimeOfDay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dish_TimeOfDay">
+              <PropertyRef Name="DishId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DishTypeId_ToDishType">
+          <End Role="DishTypes" Type="Self.DishTypes" Multiplicity="1" />
+          <End Role="Dish_DishType" Type="Self.Dish_DishType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DishTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dish_DishType">
+              <PropertyRef Name="DishTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TimeOfDayId_ToTimeOfDay">
+          <End Role="TimeOfDay" Type="Self.TimeOfDay" Multiplicity="1" />
+          <End Role="Dish_TimeOfDay" Type="Self.Dish_TimeOfDay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeOfDay">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dish_TimeOfDay">
+              <PropertyRef Name="TimeOfDayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Dish_DishType" EntityType="Self.Dish_DishType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dish_TimeOfDay" EntityType="Self.Dish_TimeOfDay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dishes" EntityType="Self.Dishes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DishTypes" EntityType="Self.DishTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeOfDay" EntityType="Self.TimeOfDay" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DishId_ToDish" Association="Self.FK_DishId_ToDish">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="Dish_DishType" EntitySet="Dish_DishType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DishId_ToDishes" Association="Self.FK_DishId_ToDishes">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="Dish_TimeOfDay" EntitySet="Dish_TimeOfDay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DishTypeId_ToDishType" Association="Self.FK_DishTypeId_ToDishType">
+            <End Role="DishTypes" EntitySet="DishTypes" />
+            <End Role="Dish_DishType" EntitySet="Dish_DishType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TimeOfDayId_ToTimeOfDay" Association="Self.FK_TimeOfDayId_ToTimeOfDay">
+            <End Role="TimeOfDay" EntitySet="TimeOfDay" />
+            <End Role="Dish_TimeOfDay" EntitySet="Dish_TimeOfDay" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dish_DishType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DishId" Type="Int32" Nullable="false" />
+          <Property Name="DishTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dish" Relationship="Self.FK_DishId_ToDish" FromRole="Dish_DishType" ToRole="Dishes" />
+          <NavigationProperty Name="DishType" Relationship="Self.FK_DishTypeId_ToDishType" FromRole="Dish_DishType" ToRole="DishTypes" />
+        </EntityType>
+        <EntityType Name="Dish_TimeOfDay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DishId" Type="Int32" Nullable="false" />
+          <Property Name="TimeOfDayId" Type="Int32" Nullable="false" />
+          <Property Name="EnableMultiple" Type="Boolean" />
+          <NavigationProperty Name="Dish" Relationship="Self.FK_DishId_ToDishes" FromRole="Dish_TimeOfDay" ToRole="Dishes" />
+          <NavigationProperty Name="TimeOfDay" Relationship="Self.FK_TimeOfDayId_ToTimeOfDay" FromRole="Dish_TimeOfDay" ToRole="TimeOfDay" />
+        </EntityType>
+        <EntityType Name="Dish">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Dish_DishType" Relationship="Self.FK_DishId_ToDish" FromRole="Dishes" ToRole="Dish_DishType" />
+          <NavigationProperty Name="Dish_TimeOfDay" Relationship="Self.FK_DishId_ToDishes" FromRole="Dishes" ToRole="Dish_TimeOfDay" />
+        </EntityType>
+        <EntityType Name="DishType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Dish_DishType" Relationship="Self.FK_DishTypeId_ToDishType" FromRole="DishTypes" ToRole="Dish_DishType" />
+        </EntityType>
+        <EntityType Name="TimeOfDay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Dish_TimeOfDay" Relationship="Self.FK_TimeOfDayId_ToTimeOfDay" FromRole="TimeOfDay" ToRole="Dish_TimeOfDay" />
+        </EntityType>
+        <Association Name="FK_DishId_ToDish">
+          <End Role="Dishes" Type="Self.Dish" Multiplicity="1" />
+          <End Role="Dish_DishType" Type="Self.Dish_DishType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dish_DishType">
+              <PropertyRef Name="DishId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DishTypeId_ToDishType">
+          <End Role="DishTypes" Type="Self.DishType" Multiplicity="1" />
+          <End Role="Dish_DishType" Type="Self.Dish_DishType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DishTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dish_DishType">
+              <PropertyRef Name="DishTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DishId_ToDishes">
+          <End Role="Dishes" Type="Self.Dish" Multiplicity="1" />
+          <End Role="Dish_TimeOfDay" Type="Self.Dish_TimeOfDay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dishes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dish_TimeOfDay">
+              <PropertyRef Name="DishId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TimeOfDayId_ToTimeOfDay">
+          <End Role="TimeOfDay" Type="Self.TimeOfDay" Multiplicity="1" />
+          <End Role="Dish_TimeOfDay" Type="Self.Dish_TimeOfDay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeOfDay">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dish_TimeOfDay">
+              <PropertyRef Name="TimeOfDayId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DishOrderEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dish_DishType" EntityType="Self.Dish_DishType" />
+          <EntitySet Name="Dish_TimeOfDay" EntityType="Self.Dish_TimeOfDay" />
+          <EntitySet Name="Dishes" EntityType="Self.Dish" />
+          <EntitySet Name="DishTypes" EntityType="Self.DishType" />
+          <EntitySet Name="TimeOfDays" EntityType="Self.TimeOfDay" />
+          <AssociationSet Name="FK_DishId_ToDish" Association="Self.FK_DishId_ToDish">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="Dish_DishType" EntitySet="Dish_DishType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DishTypeId_ToDishType" Association="Self.FK_DishTypeId_ToDishType">
+            <End Role="DishTypes" EntitySet="DishTypes" />
+            <End Role="Dish_DishType" EntitySet="Dish_DishType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DishId_ToDishes" Association="Self.FK_DishId_ToDishes">
+            <End Role="Dishes" EntitySet="Dishes" />
+            <End Role="Dish_TimeOfDay" EntitySet="Dish_TimeOfDay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TimeOfDayId_ToTimeOfDay" Association="Self.FK_TimeOfDayId_ToTimeOfDay">
+            <End Role="TimeOfDay" EntitySet="TimeOfDays" />
+            <End Role="Dish_TimeOfDay" EntitySet="Dish_TimeOfDay" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="DishOrderEntities">
+          <EntitySetMapping Name="Dish_DishType">
+            <EntityTypeMapping TypeName="Model.Dish_DishType">
+              <MappingFragment StoreEntitySet="Dish_DishType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DishId" ColumnName="DishId" />
+                <ScalarProperty Name="DishTypeId" ColumnName="DishTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dish_TimeOfDay">
+            <EntityTypeMapping TypeName="Model.Dish_TimeOfDay">
+              <MappingFragment StoreEntitySet="Dish_TimeOfDay">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DishId" ColumnName="DishId" />
+                <ScalarProperty Name="TimeOfDayId" ColumnName="TimeOfDayId" />
+                <ScalarProperty Name="EnableMultiple" ColumnName="EnableMultiple" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dishes">
+            <EntityTypeMapping TypeName="Model.Dish">
+              <MappingFragment StoreEntitySet="Dishes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DishTypes">
+            <EntityTypeMapping TypeName="Model.DishType">
+              <MappingFragment StoreEntitySet="DishTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeOfDays">
+            <EntityTypeMapping TypeName="Model.TimeOfDay">
+              <MappingFragment StoreEntitySet="TimeOfDay">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

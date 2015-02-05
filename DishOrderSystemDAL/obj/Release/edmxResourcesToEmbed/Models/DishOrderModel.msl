@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="DishOrderEntities">
+    <EntitySetMapping Name="Dish_DishType">
+      <EntityTypeMapping TypeName="Model.Dish_DishType">
+        <MappingFragment StoreEntitySet="Dish_DishType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DishId" ColumnName="DishId" />
+          <ScalarProperty Name="DishTypeId" ColumnName="DishTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dish_TimeOfDay">
+      <EntityTypeMapping TypeName="Model.Dish_TimeOfDay">
+        <MappingFragment StoreEntitySet="Dish_TimeOfDay">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DishId" ColumnName="DishId" />
+          <ScalarProperty Name="TimeOfDayId" ColumnName="TimeOfDayId" />
+          <ScalarProperty Name="EnableMultiple" ColumnName="EnableMultiple" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dishes">
+      <EntityTypeMapping TypeName="Model.Dish">
+        <MappingFragment StoreEntitySet="Dishes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DishTypes">
+      <EntityTypeMapping TypeName="Model.DishType">
+        <MappingFragment StoreEntitySet="DishTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TimeOfDays">
+      <EntityTypeMapping TypeName="Model.TimeOfDay">
+        <MappingFragment StoreEntitySet="TimeOfDay">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

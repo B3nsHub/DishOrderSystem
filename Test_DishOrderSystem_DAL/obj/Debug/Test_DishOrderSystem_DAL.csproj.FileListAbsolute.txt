@@ -1,0 +1,14 @@
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\obj\Debug\Test_DishOrderSystem_DAL.csprojResolveAssemblyReference.cache
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\bin\Debug\App_Data\DishesDatabase.mdf
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\bin\Debug\App_Data\DishesDatabase_log.ldf
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\bin\Debug\Test_DishOrderSystem_DAL.dll.config
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\bin\Debug\Test_DishOrderSystem_DAL.dll
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\bin\Debug\Test_DishOrderSystem_DAL.pdb
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\bin\Debug\DishOrderSystemDAL.dll
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\bin\Debug\EntityFramework.dll
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\bin\Debug\DishOrderSystemDAL.pdb
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\bin\Debug\EntityFramework.xml
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\obj\Debug\Test_DishOrderSystem_DAL.dll
+C:\Users\Ben\Documents\Visual Studio 2013\Projects\DishOrderSystem\Test_DishOrderSystem_DAL\obj\Debug\Test_DishOrderSystem_DAL.pdb
